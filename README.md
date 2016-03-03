@@ -32,7 +32,7 @@ A backend programmer can help with the frontend if needed and vice versa.
         * ..To be continued
 
 Node.js:
-![Node.js Performance](http://i.imgur.com/is7PVIg.png)
+![Node.js Performance](http://i.imgur.com/cOfu8HZ.png)
 
 
 Java on Tomcat:
