@@ -85,12 +85,10 @@ If needed, node can scale even more by using a load balancer handling multiple s
 
 ![Multiple Servers](http://js2016.azurewebsites.net/node1/images/NodeJS-Architecture2.png)
 
-
-
-
-
-
-
+ 
+ 
+ 
+ 
 * __Explain, using relevant examples, concepts related to the testing a REST-API using Node/JavaScript + relevant packages__
 
 
