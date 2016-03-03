@@ -50,7 +50,7 @@ To take advantage of the multi-core system, we need to launch a cluster of Node.
 Node.js comes with a built in [Cluster Api](https://nodejs.org/api/cluster.html "Cluster Api").
 The cluster module lets us create multiple processes that all uses the same server port.
 
-´´´javascript
+```javascript
 const cluster = require('cluster');
 const http = require('http');
 const numCPUs = require('os').cpus().length;
@@ -72,7 +72,7 @@ if (cluster.isMaster) {
     res.end('hello world\n');
   }).listen(8000);
 }
-´´´
+```
 
 
 
