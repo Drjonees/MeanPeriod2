@@ -15,16 +15,35 @@ A backend programmer can help with the frontend if needed and vice versa.
 
     * __Pros__
     
-        * As mentioned in the previous question, it is great to have the same language in both frontend and backend.
+        * Same language in both frontend and backend
+        * Unified data format: JSON.
+        * Not having to deal with threads because of node.js non-blocking event queue.
+        * Speed. Node.js is often faster than the Java, JAX-RS, Tomcat stack.
+        * Fairly new technology, so other cool technologies such as websockets are easy to implement.
+        * Scalability.
+        * NPM
+        * ..To be continued
         
-
     
     * __Cons__
+    
+        * CPU heavy operations. Since Node.js is single threaded, a CPU heavy coperation could slow down the whole server.(Use Cluster module).
+        * Fairly new technology. Hard to keep being updated with all the new updates and packages available.
+        * ..To be continued
+
+Node.js:
+![Node.js Performance](http://i.imgur.com/is7PVIg.png)
 
 
+Java on Tomcat:
+![Java on Tomcat Performance](http://i.imgur.com/Ya72Zmq.png)
 
+
+[Source](http://josh.zeigler.us/technology/web-development/experiences-with-node-js-porting-a-restful-service-written-in-java/ "Source")
 
 * __Node.js uses a Single Threaded Non-blocking strategy to handle asynchronous task. Explain strategies to implement a Node.js based server architecture that still could take advantage of a multi-core Server.__
+
+
 
 
 
