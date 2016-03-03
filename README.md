@@ -42,6 +42,9 @@ Java on Tomcat:
 
 
 
+
+
+
 * __Node.js uses a Single Threaded Non-blocking strategy to handle asynchronous task. Explain strategies to implement a Node.js based server architecture that still could take advantage of a multi-core Server.__
 
 Last semester, we talked alot about why we should be using threads. Since CPU's speed have more or less stopped increasing, the number of cores has increased. By using threads, we could really take advantage of the multi-core system.
@@ -81,6 +84,10 @@ If needed, node can scale even more by using a load balancer handling multiple s
 
 
 ![Multiple Servers](http://js2016.azurewebsites.net/node1/images/NodeJS-Architecture2.png)
+
+
+
+
 
 
 
