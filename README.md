@@ -1,10 +1,15 @@
 # MeanPeriod2
 
+
 * Why would you consider a Scripting Language as JavaScript as your Backend Platform.
+The line between scripting language and 'normal' compiled programming language are getting more and more blurred, since hardware are getting better and better, the compilers gets faster and faster.
+Javascipt is being interpreted by the V8 engine. That means that it runs inside of another program. Often a scripting language is faster to learn and use. You can often do more with less code.
 
-
+Another reason to use javascript is that in frontend, we almost always use javascript already. By having the same language in frontend and backend, we can reuse and optimize the developer resources in a company.
+A backend programmer can help with the frontend if needed and vice versa.
 
 * Explain Pros & Cons in using Node.js + Express to implement your Backend compared to a strategy using for example Java/JAX-RS/Tomcat
+
 
 
 
@@ -39,3 +44,5 @@
 * Explain, using relevant examples, different ways to mock out databases, HTTP-request etc.
 
 
+##Resources
+http://www.yorku.ca/nmw/facs1939f13/javascript_all/js_scriptingVSprogramming.html
