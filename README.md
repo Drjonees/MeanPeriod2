@@ -45,35 +45,42 @@ Java on Tomcat:
 * __Node.js uses a Single Threaded Non-blocking strategy to handle asynchronous task. Explain strategies to implement a Node.js based server architecture that still could take advantage of a multi-core Server.__
 
 Last semester, we talked alot about why we should be using threads. Since CPU's speed have more or less stopped increasing, the number of cores has increased. By using threads, we could really take advantage of the multi-core system.
+
+# Multiple Cores
+
 Since Node.js is single threaded, it is only running on one core. 
 To take advantage of the multi-core system, we need to launch a cluster of Node.js processes.
 Node.js comes with a built in [Cluster Api](https://nodejs.org/api/cluster.html "Cluster Api").
-The cluster module lets us create multiple processes that all uses the same server port.
+
+By using the Cluster module, we can spawn a pool of workers, running under a parent Node process. 
+The parent/master process is in charge of initiating and controller workers.
+
+
+The cluster module lets us create multiple processes that all uses the same server port:
 
 ```javascript
-const cluster = require('cluster');
-const http = require('http');
-const numCPUs = require('os').cpus().length;
+var cluster = require('cluster');
+var http = require('http');
+var numCPUs = require('os').cpus().length;
 
 if (cluster.isMaster) {
-  // Fork workers.
-  for (var i = 0; i < numCPUs; i++) {
-    cluster.fork();
-  }
-
-  cluster.on('exit', (worker, code, signal) => {
-    console.log(`worker ${worker.process.pid} died`);
-  });
+    for (var i = 0; i < numCPUs; i++) {
+        cluster.fork();
+    }
 } else {
-  // Workers can share any TCP connection
-  // In this case it is an HTTP server
-  http.createServer((req, res) => {
-    res.writeHead(200);
-    res.end('hello world\n');
-  }).listen(8000);
+    http.createServer(function(req, res) {
+        res.writeHead(200);
+        res.end('process ' + process.pid + ' says hello!');
+    }).listen(8000);
 }
 ```
 
+# Multiple Servers
+
+If needed, node can scale even more by using a load balancer handling multiple servers, running multiple processes:
+
+
+![Multiple Servers](http://js2016.azurewebsites.net/node1/images/NodeJS-Architecture2.png)
 
 
 
