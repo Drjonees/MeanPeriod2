@@ -46,7 +46,7 @@ Java on Tomcat:
 
 Last semester, we talked alot about why we should be using threads. Since CPU's speed have more or less stopped increasing, the number of cores has increased. By using threads, we could really take advantage of the multi-core system.
 
-# Multiple Cores
+##### Multiple Cores
 
 Since Node.js is single threaded, it is only running on one core. 
 To take advantage of the multi-core system, we need to launch a cluster of Node.js processes.
@@ -75,7 +75,7 @@ if (cluster.isMaster) {
 }
 ```
 
-# Multiple Servers
+##### Multiple Servers
 
 If needed, node can scale even more by using a load balancer handling multiple servers, running multiple processes:
 
