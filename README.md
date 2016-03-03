@@ -1,8 +1,8 @@
 # MeanPeriod2
 
-<pre>
-<style="font-size: 250%;"></style>* Why would you consider a Scripting Language as JavaScript as your Backend Platform.
-</pre>
+
+* Why would you consider a Scripting Language as JavaScript as your Backend Platform.
+
 The line between scripting language and 'normal' compiled programming language are getting more and more blurred, since hardware are getting better and better, the compilers gets faster and faster.
 Javascipt is being interpreted by the V8 engine. That means that it runs inside of another program. Often a scripting language is faster to learn and use. You can often do more with less code.
 
