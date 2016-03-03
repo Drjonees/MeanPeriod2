@@ -10,41 +10,47 @@ Another reason to use javascript is that in frontend, we almost always use javas
 A backend programmer can help with the frontend if needed and vice versa.
 
 
-* Explain Pros & Cons in using Node.js + Express to implement your Backend compared to a strategy using for example Java/JAX-RS/Tomcat
+
+* __Explain Pros & Cons in using Node.js + Express to implement your Backend compared to a strategy using for example Java/JAX-RS/Tomcat__
+
+    * __Pros__
+    
+    * __Cons__
 
 
 
 
-* Node.js uses a Single Threaded Non-blocking strategy to handle asynchronous task. Explain strategies to implement a Node.js based server architecture that still could take advantage of a multi-core Server.
+* __Node.js uses a Single Threaded Non-blocking strategy to handle asynchronous task. Explain strategies to implement a Node.js based server architecture that still could take advantage of a multi-core Server.__
 
 
 
-* Explain, using relevant examples, concepts related to the testing a REST-API using Node/JavaScript + relevant packages
+* __Explain, using relevant examples, concepts related to the testing a REST-API using Node/JavaScript + relevant packages__
 
 
 
-* Explain, using relevant examples, the Express concept; middleware.
+* __Explain, using relevant examples, the Express concept; middleware.__
 
 
 
-* Explain, using relevant examples, how to implement sessions, and the legal implications of doing this.
+* __Explain, using relevant examples, how to implement sessions, and the legal implications of doing this.__
 
 
 
-* Compare the express strategy toward (server side) templating with the one you used with Java on second semester.
+* __Compare the express strategy toward (server side) templating with the one you used with Java on second semester.__
 
 
 
-* Explain, using a relevant examples, your strategy for implementing a REST-API with Node/Express and show how you can "test" all the four CRUD operations programmatically using for example the Request package.
+* __Explain, using a relevant examples, your strategy for implementing a REST-API with Node/Express and show how you can "test" all the four CRUD operations programmatically using for example the Request package.__
 
 
 
-* Explain, using relevant examples, about testing JavaScript code, relevant packages (Mocha etc.) and how to test asynchronous code.
+* __Explain, using relevant examples, about testing JavaScript code, relevant packages (Mocha etc.) and how to test asynchronous code.__
 
 
 
-* Explain, using relevant examples, different ways to mock out databases, HTTP-request etc.
+* __Explain, using relevant examples, different ways to mock out databases, HTTP-request etc.__
 
 
 ##Resources
 http://www.yorku.ca/nmw/facs1939f13/javascript_all/js_scriptingVSprogramming.html
+http://stackoverflow.com/questions/101055/when-is-a-language-considered-a-scripting-language
