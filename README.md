@@ -15,6 +15,10 @@ A backend programmer can help with the frontend if needed and vice versa.
 
     * __Pros__
     
+        * As mentioned in the previous question, it is great to have the same language in both frontend and backend.
+        
+
+    
     * __Cons__
 
 
