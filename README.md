@@ -94,6 +94,47 @@ If needed, node can scale even more by using a load balancer handling multiple s
 
 
 * __Explain, using relevant examples, the Express concept; middleware.__
+Alot of the work we're doing on a web server, is happening between the request and respond, for instance processing the http request, and building the appropriate response for that request.
+In Express, we use middleware to do just that.
+Middleware is just code that is being executed between two layers of software. In our case, it's between the request and response.
+
+In Express the middleware functions are given access to the request object, response object and the next middleware function in the application's cycle.
+We can use middleware to log what type of http methods gets through our server:
+
+```javascript
+app.use(function (req, res, next) {
+  console.log('Request Type:', req.method);
+  next();
+});
+```
+Notice that no URL was given for this middleware, so it will be executed for all incoming requests.
+
+We can use a URL if we want our middleware to only be executed from certain pages.
+We can for instance make a middleware function that logs at what time someone access the 'secret page' url:
+
+```javascript
+app.use('/secretPage',function (req, res, next) {
+  console.log('Someone was at the secret page at:', Date.now());
+  next();
+});
+```
+
+It's important to call 'next()', if the middleware is not ending the request-response cycle.
+
+Often we're using third party middleware.
+We can use 'serve-favicon' to handle the favicon of our site:
+```javascript
+app.use(favicon(__dirname + '/public/favicon.ico'));
+```
+
+Or we can use middleware to handle routing:
+```javascript
+var users = require('./routes/users');
+var login = require('./routes/login');
+
+app.use('/users', users);
+app.use('/login', login);
+```
 
 
 
@@ -119,3 +160,10 @@ If needed, node can scale even more by using a load balancer handling multiple s
 ##Resources
 http://www.yorku.ca/nmw/facs1939f13/javascript_all/js_scriptingVSprogramming.html
 http://stackoverflow.com/questions/101055/when-is-a-language-considered-a-scripting-language
+https://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js
+http://blog.modulus.io/top-10-reasons-to-use-node
+http://josh.zeigler.us/technology/web-development/experiences-with-node-js-porting-a-restful-service-written-in-java/
+http://mobilenext.net/scaling-node-js-multi-core-systems/
+http://www.sitepoint.com/how-to-create-a-node-js-cluster-for-speeding-up-your-apps/
+http://cjihrig.com/blog/scaling-node-js-applications/
+https://nodejs.org/api/cluster.html
