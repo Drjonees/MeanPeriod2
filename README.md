@@ -91,6 +91,7 @@ If needed, node can scale even more by using a load balancer handling multiple s
  
 * __Explain, using relevant examples, concepts related to the testing a REST-API using Node/JavaScript + relevant packages__
 
+TODO
 
 
 * __Explain, using relevant examples, the Express concept; middleware.__
@@ -142,21 +143,23 @@ app.use('/login', login);
 
 * __Explain, using relevant examples, how to implement sessions, and the legal implications of doing this.__
 
-
+TODO
 
 * __Compare the express strategy toward (server side) templating with the one you used with Java on second semester.__
 
-
+TODO
 
 * __Explain, using a relevant examples, your strategy for implementing a REST-API with Node/Express and show how you can "test" all the four CRUD operations programmatically using for example the Request package.__
 
-
+TODO
 
 * __Explain, using relevant examples, about testing JavaScript code, relevant packages (Mocha etc.) and how to test asynchronous code.__
 
-
+TODO
 
 * __Explain, using relevant examples, different ways to mock out databases, HTTP-request etc.__
+
+TODO
 
 
 ##Resources
