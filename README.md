@@ -94,7 +94,9 @@ If needed, node can scale even more by using a load balancer handling multiple s
 
 
 * __Explain, using relevant examples, the Express concept; middleware.__
+
 Alot of the work we're doing on a web server, is happening between the request and respond, for instance processing the http request, and building the appropriate response for that request.
+
 In Express, we use middleware to do just that.
 Middleware is just code that is being executed between two layers of software. In our case, it's between the request and response.
 
