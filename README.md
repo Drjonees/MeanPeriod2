@@ -29,6 +29,7 @@ A backend programmer can help with the frontend if needed and vice versa.
     
         * CPU heavy operations. Since Node.js is single threaded, a CPU heavy coperation could slow down the whole server.(Use Cluster module).
         * Fairly new technology. Hard to keep being updated with all the new updates and packages available.
+        * Unhandled error will shutdown the server.
         * ..To be continued
 
 Node.js:
