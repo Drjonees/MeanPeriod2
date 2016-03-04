@@ -144,11 +144,65 @@ app.use('/login', login);
 
 * __Explain, using relevant examples, how to implement sessions, and the legal implications of doing this.__
 
-TODO
+There are various ways of implementing sessions, but the most used one is by using the module called "express-session".
+The way it works (on the surface), is by saving a cookie holding the Session ID. When ever a request comes in, the session middleware will look at the session ID found in the cookie,
+and make the session object available for us. 
+
+It can be used like this to check if a user is logged in with a username:
+
+```javascript
+var express = require('express');
+var session = require("express-session");
+var app = express();
+
+//Alot of other middleware stuff is going on here
+
+
+app.use(session({
+    secret: 'secretWordIsSecret',
+    saveUninitialized: true,
+    resave: true
+}));
+
+
+app.use(function (req, res, next) {
+    //Taking the session object from the request object.
+    var sess = req.session; 
+
+
+    //If the session object has a userName, the request is allowed access to the rest of the site and we call next() to go to the next middleware in the express stack.
+    if (sess.userName) {
+        return next();
+    }
+    
+    //Else if the requests body has a userName, that means that it's a login attempt, so we will save the username to the session and respond with a redirect to '/' path.
+    else if (req.body.userName) {
+        sess.userName = req.body.userName;
+        return res.redirect('/');
+    } 
+    
+    //Else the user is not logged in and is not trying to login, so we do not want to give access to the rest of the site so we redirect to the '/login' page.
+    else {
+         return res.redirect('/login');
+    }
+});
+```
+
+
+The express-session module comes with a 'MemoryStore', but in a production environment i'd properbly use something like a seperate mongodb or redis database. This would make it possible to scale up and use multiple node.js servers.
+
+
+
+Since we're using a cookie to store our Session ID, we will have to let the users know that we're using cookies, why we're using them and how.
 
 * __Compare the express strategy toward (server side) templating with the one you used with Java on second semester.__
 
-TODO
+Similarities:
+
+
+Differences:
+
+
 
 * __Explain, using a relevant examples, your strategy for implementing a REST-API with Node/Express and show how you can "test" all the four CRUD operations programmatically using for example the Request package.__
 
