@@ -92,8 +92,38 @@ If needed, node can scale even more by using a load balancer handling multiple s
  
 * __Explain, using relevant examples, concepts related to the testing a REST-API using Node/JavaScript + relevant packages__
 
-TODO
+If the tests, so not need to be automated and you just want to see that your REST-API works, you can simply use the request module.
 
+The ['Request' module](https://www.npmjs.com/package/request "'Request' module") allows us to make http requests from our node.js application. 
+This can be used to 'test' our RESTful api:
+
+Get:
+```javascript
+request('http://localhost:3000/api/joke', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body);
+    }
+});
+```
+
+Post:
+```javascript
+request({
+        url: "http: //localhost:3000/api/joke",
+        method: "POST",
+        json: true,
+        body: {
+            joke: "I'm a joke"
+        }
+    },
+    function (error, res, body) {
+        if (!error && res.statusCode == 200) {
+            console.log(body);
+        }
+    });
+```
+
+However, if we want to make 'real' tests, we have to use mocha and chai.
 
 * __Explain, using relevant examples, the Express concept; middleware.__
 
@@ -189,7 +219,20 @@ app.use(function (req, res, next) {
 ```
 
 
-The express-session module comes with a 'MemoryStore', but in a production environment i'd properbly use something like a seperate mongodb or redis database. This would make it possible to scale up and use multiple node.js servers.
+The express-session module comes with a 'MemoryStore', but in a production environment i'd properbly use something like a seperate mongodb or redis database. This would make it possible to scale up and use multiple node.js servers:
+```javascript
+var express = require('express');
+var RedisStore = require('connect-redis')(session);
+
+var app = express();
+
+app.use(session({
+    store: new RedisStore({
+        url: 'redis://redistogo:87b3f59d153dc010dc97257b6a270ae5@tarpon.redistogo.com:10768'
+    }),
+    secret: 'secretWordIsSecret'
+}));
+```
 
 
 
@@ -197,16 +240,76 @@ Since we're using a cookie to store our Session ID, we will have to let the user
 
 * __Compare the express strategy toward (server side) templating with the one you used with Java on second semester.__
 
-Similarities:
+On 2nd semester, we used a MVC pattern, using servlets, java classes and jsp pages.
+The servlet(with other controller classes), took the data from our java objects(from db -> mapping to objects -> facade) and put the data into the jsp pages, which was then generated to html and send back to the user.
 
-
-Differences:
-
+With node.js server side templating, we're using the same principles but other technologies. 
+We have a view engine that takes some data, and puts it into our views and returns some generated html.
+Since we're using a view engine, we can easily change which engine to use, and therefore we have more oppotunities.
+The most used ones are Jade, EJS and Handlebars.
 
 
 * __Explain, using a relevant examples, your strategy for implementing a REST-API with Node/Express and show how you can "test" all the four CRUD operations programmatically using for example the Request package.__
 
-TODO
+The ['Request' module](https://www.npmjs.com/package/request "'Request' module") allows us to make http requests from our node.js application. 
+This can be used to 'test' our RESTful api:
+
+Get:
+```javascript
+request('http://localhost:3000/api/joke', function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body);
+    }
+});
+```
+
+Post:
+```javascript
+request({
+        url: "http: //localhost:3000/api/joke",
+        method: "POST",
+        json: true,
+        body: {
+            joke: "I'm a joke"
+        }
+    },
+    function (error, res, body) {
+        if (!error && res.statusCode == 200) {
+            console.log(body);
+        }
+    });
+```
+
+Put:
+```javascript
+request({
+        url: "http: //localhost:3000/api/joke/3",
+        method: "PUT",
+        json: true,
+        body: {
+            joke: "I'm an updated joke"
+        }
+    },
+    function (error, res, body) {
+        if (!error && res.statusCode == 200) {
+            console.log(body);
+        }
+    });
+```
+
+Delete:
+```javascript
+request({
+        url: "http: //localhost:3000/api/joke/3",
+        method: "Delete",
+    },
+    function (error, res, body) {
+        if (!error && res.statusCode == 200) {
+            console.log(body);
+        }
+    });
+```
+
 
 * __Explain, using relevant examples, about testing JavaScript code, relevant packages (Mocha etc.) and how to test asynchronous code.__
 
